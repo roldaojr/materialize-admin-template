@@ -1,0 +1,20 @@
+{
+  "name": "materialize-admin-template",
+  "description": "MaterializeCSS basic CRUD template",
+  "authors": [
+    "Roldão Rego Jr"
+  ],
+  "license": "GPL-3.0",
+  "homepage": "https://github.com/roldaojr/materialize-admin-template",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "materialize": "^0.97.7"
+  }
+}

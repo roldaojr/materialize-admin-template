@@ -1,0 +1,220 @@
+@import "../../bower_components/materialize/sass/materialize";
+
+$left-nav-width: 240px;
+
+header, main, footer, .main-content {
+    padding-left: 0px;
+}
+
+.left-nav {
+    width: $left-nav-width;
+}
+
+.bg-primary,
+.side-nav .bg-primary {
+    background-color: $primary-color;
+    color: $navbar-font-color;
+    a.collapsible-header {
+        color: $navbar-font-color;
+        > i.material-icons {
+            color: $navbar-font-color;
+        }
+    }
+}
+
+.bg-secundary {
+    background-color: $secondary-color;
+}
+
+nav .brand-logo {
+    left: auto;
+    -webkit-transform: none;
+    transform: none;
+    font-size: 1.5rem;
+}
+
+/* side-nav always visible on large screen */
+@media #{$large-and-up} {
+    header, main, footer, .main-content {
+        padding-left: $left-nav-width + 5px;
+    }
+    nav .brand-logo {
+    	padding-left: 10px;
+    	font-size: 2.1rem;
+    }
+}
+
+/* more button style */
+nav ul .more-menu {
+    padding: 0 6px;
+}
+
+/* admin list link */
+.admin-list {
+    -webkit-user-select: none;  
+    -moz-user-select: none;    
+    -ms-user-select: none;      
+    user-select: none;
+    cursor: default;
+}
+
+/* adjust table padding */
+td, th {
+    padding: 10px 5px;
+}
+
+/* checkbox form hint */
+.input-field.checkbox .hint {
+    margin-top: 20px;
+}
+
+
+/* filter-slide-out style */
+#filter-slide-out {
+    .content {
+        line-height: normal;
+        .btn, .btn-flat {
+            height: 36px;
+            line-height: 36px;
+            margin: 0px;
+        }
+    }
+}
+/* ajax loader style */
+#ajax-loader {
+    bottom: 0px;
+    margin: 0px;
+    position: fixed;
+    z-index: 1000;
+    display: none;
+}
+
+/* colored toast */
+.toast.error {
+    background-color: #b71c1c;
+    color: white;
+    font-weight: bold;
+}
+
+.toast.success {
+    background-color: #1b5e20;
+    color: white;
+    font-weight: bold;
+}
+
+/* side-nav icons */
+.side-nav li > a > {
+    i.right, [class^="mdi-"], [class*="mdi-"], i.right.material-icons {
+    	margin: 0 0 0 15px;
+    	float: right;
+    }
+}
+
+/* collection table style */
+.collection.table {
+    width: 100%;
+    display: table;
+
+    .collection-item {
+        display: table-row;
+    }
+    
+    .items {
+        display: table-row-group;
+    }
+    
+    .cell {
+        display: table-cell;
+        vertical-align: middle;
+        background-color: inherit;
+        line-height: inherit;
+        padding: 10px 5px;
+        margin: inherit;
+        border: inherit;
+    }
+    
+    .header {
+        font-weight: bold;
+    }
+    
+    a.cell {
+        color: inherit;
+    }
+    
+    .checkbox {
+        width: 0px;
+    }
+    
+    > .items > .collection-item:hover {
+    	background-color: #f2f2f2;
+    }
+    
+    .header .cell:hover {
+        background-color: #f2f2f2;
+    }
+
+    [type="checkbox"] + label {
+        /* css for checkox in table */
+        width: 22px;
+        height: 22px;
+        float: left;
+        padding: 0px;
+    }
+}
+
+/* small-screen collection.table */
+@media only screen and (max-width: 993px) {
+    /* Force table to not be like tables anymore */
+    .collection.table {
+        display: block;
+
+        .items {
+            display: table;
+            width: 100%;
+        }
+
+        .collection-item {
+            display: table-row-group;
+        }
+
+        .header {
+            display: none;
+        }
+
+        .cell:not(.checkbox):before {
+            display: table-cell;
+            padding-left: 40px;
+            content: attr(data-label);
+            font-weight: bold;
+        }
+
+        .cell:not(.checkbox) {
+            display: table-row;
+            line-height: 1;
+        }
+    
+        .cell:not(.checkbox) > * {
+            display: table-cell;
+            padding: 5px 5px;
+            min-width: 50%;
+        }
+        
+        .cell:last-child:not(.checkbox):before,
+        .cell:last-child:not(.checkbox) > * {
+            border-bottom: 1px solid #e0e0e0;
+        }
+    
+        .cell.checkbox {
+            border: none;
+            margin-left: 10px;
+            margin-top: 5px;
+            position: absolute;
+            width: 25px;
+            padding: 0px;
+        }
+    }
+}
+
+.dropdown-content li > a {
+    color: black;
+}

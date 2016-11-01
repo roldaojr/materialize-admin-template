@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../css/admin.css">
+<!--<link rel="stylesheet" href="//cdn.materialdesignicons.com/1.7.22/css/materialdesignicons.min.css">-->
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Material Admin</title>
+{% block extrahead %}{% endblock %}
+</head>
+<body>
+  <div class="progress" id="ajax-loader">
+    <div class="indeterminate"></div>
+  </div>
+<!-- side nav -->
+  <ul id="side-nav" class="left-nav side-nav fixed">
+    <li class="bg-primary">
+      <div class="logo center-align">Material Admin</div>
+    </li>
+    <li class="bg-primary">
+      <ul class="collapsible collapsible-accordion">
+        <li>
+          <a class="collapsible-header">
+            <i class="material-icons">account_circle</i>
+            User Name
+            <i class="material-icons right">arrow_drop_up</i>
+          </a>
+          <div class="collapsible-body">
+            <ul>
+              <li>
+                <a href="#">Change password</a>
+              </li>
+              <li>
+                <a href="#">Log out</a>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </li>
+{% include 'partials/menu.html' %}
+  </ul>
+  <!-- top nav -->
+  <div class="navbar-fixed">
+    <nav>
+      <div class="nav-wrapper main-content">
+        {% block left_action %}
+        <ul class="nav-mobile">
+          <li><a class="button-collapse" href="#" data-activates="side-nav"><i class="material-icons">menu</i></a></li>
+        </ul>
+        {% endblock %}
+        <span class="brand-logo">{% block title %}{% endblock %}</span>
+        {% block actions %}{% endblock %}
+      </div>
+    </nav>
+  </div>
+  <main>{% block content %}{% endblock %}</main>
+<script src="//code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="../js/materialize.min.js"></script>
+<script src="../js/ui.js"></script>
+{% block extrascript %}
+{% endblock %}
+</body>
+</html>

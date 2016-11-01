@@ -1,0 +1,116 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+Record list
+{% endblock %}
+
+{% block actions %}
+<ul id="nav-mobile" class="right">
+  <li class="hide-on-med-and-down">
+    <a href="record-form.html">
+      <i class="left material-icons">add</i>Add
+    </a>
+  </li>
+  <li>
+    <a href="#" class="right-slide-out" data-activates="filter-slide-out">
+      <span class="hide-on-med-and-down"><i class="left material-icons">filter_list</i>Filter</span>
+      <span class="hide-on-large-only"><i class="material-icons">filter_list</i></span>
+    </a>
+  </li>
+  <li>
+    <a class="dropdown-button more-menu" data-activates="more_menu" data-beloworigin="true" data-constrainwidth="false">
+      <i class="material-icons">more_vert</i>
+    </a>
+    <ul id="more_menu" class="dropdown-content">
+      <li><a href="#" class="right-slide-out" data-activates="ordering-slide-out">Order</a></li>
+      <li><a href="#">Global action</a></li>
+    </ul>
+  </li>
+</ul>
+{% endblock %}
+
+{% block content %}
+<div class="collection table admin-list">
+    <div class="collection-item header">
+    {% for j in range(1, 6) -%}
+    <a href="#" class="cell">
+        <i class="material-icons right">arrow_drop_up</i>
+        Column {{ j }}
+    </a>
+    {%- endfor %}
+    <a href="#" class="cell"></a>
+  </div>
+  <div class="items">
+    {% for i in range(1, 21) -%}
+    <div class="collection-item">
+        {% for j in range(1, 6) -%}
+        <a href="admin-form.html" class="cell" data-label="Column {{ j }}">
+            <span>Cell {{ i }} {{ j }}</span>
+        </a>
+        {%- endfor %}
+    </div>
+    {%- endfor %}
+  </div>
+</div>
+
+<div class="fixed-action-btn hide-on-large-only">
+  <a class="btn-floating btn-large" href="admin-form.html">
+    <i class="large material-icons">add</i>
+  </a>
+</div>
+
+{% include 'partials/sidenav-filter.html' %}
+{% include 'partials/sidenav-order.html' %}
+{% endblock %}
+
+{% block extrascript %}
+<script type="text/javascript">
+var num_pages = 5
+var next_page_number = 1
+
+function admin_list_show_more() {
+  next_page_number++
+  $.ajax('admin-list-page.html?page=' + next_page_number, {
+    success: function(data) {
+      $('.admin-list .items .collection-item:last-child').after(data)
+      if (next_page_number < num_pages) {
+          admin_list_scroll_fire()
+      } else {
+          $('.admin-list-show-more').hide()
+      }
+    },
+    error: function(xhr, textStatus, errorThrown) {
+      if(xhr.status != 404)
+          Materialize.toast('Erro: '+errorThrown, 5000, 'error')
+    }
+  })
+}
+
+function isElementInView(element, fullyInView) {
+    var pageTop = $(window).scrollTop();
+    var pageBottom = pageTop + $(window).height();
+    var elementTop = $(element).offset().top;
+    var elementBottom = elementTop + $(element).height();
+
+    if (fullyInView === true) {
+        return ((pageTop < elementTop) && (pageBottom > elementBottom));
+    } else {
+        return ((elementBottom <= pageBottom) && (elementTop >= pageTop));
+    }
+}
+
+function admin_list_scroll_fire() {
+    selector = '.admin-list .items .collection-item:last-child'
+    Materialize.scrollFire([{
+      selector: selector,
+      offset: 0,
+      callback: admin_list_show_more
+    }])
+    if(isElementInView(selector)) admin_list_show_more()
+}
+
+if (next_page_number < num_pages) {
+    admin_list_scroll_fire()
+}
+</script>
+{% endblock %}

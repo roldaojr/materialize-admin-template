@@ -1,0 +1,13 @@
+<ul id="ordering-slide-out" class="side-nav">
+    <li>
+        <a class="bg-primary">Order</a>
+    </li>
+    {% for j in range(1, 5) -%}
+    <li>
+        <a href="">
+            <i class="material-icons right">arrow_drop_down</i>
+            Column {{ i }}
+        </a>
+    </li>
+    {%- endfor %}
+</ul>

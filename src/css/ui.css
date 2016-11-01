@@ -1,0 +1,199 @@
+header, main, footer, .main-content {
+    padding-left: 0px;
+}
+
+#left-panel {
+    width: 240px;
+}
+
+nav .brand-logo {
+    left: auto;
+    -webkit-transform: none;
+    transform: none;
+    font-size: 1.38rem;
+}
+
+/* side-nav always visible on large screen */
+@media only screen and (min-width: 993px) {
+    header, main, footer, .main-content {
+        padding-left: 305px;
+    }
+    nav .brand-logo {
+    	padding-left: 10px;
+    	font-size: 2.1rem;
+    }
+}
+
+/* more button style */
+nav ul .more {
+    padding: 0 8px;
+}
+
+/* admin list link */
+.admin-list {
+    -webkit-user-select: none;  
+    -moz-user-select: none;    
+    -ms-user-select: none;      
+    user-select: none;
+    cursor: default;
+}
+
+/* adjust table padding */
+td, th {
+    padding: 10px 5px;
+}
+
+/* checkbox form hint */
+.input-field.checkbox .hint {
+    margin-top: 20px;
+}
+
+
+/* filter-slide-out style */
+#filter-slide-out .content {
+    line-height: normal;
+}
+
+#filter-slide-out .content .btn, #filter-slide-out .content .btn-flat {
+    height: 36px;
+    line-height: 36px;
+    margin: 0px;
+}
+
+/* ajax loader style */
+#ajax-loader {
+    bottom: 0px;
+    margin: 0px;
+    position: fixed;
+    z-index: 1000;
+    display: none;
+}
+
+/* colored toast */
+.toast.error {
+    background-color: #b71c1c;
+    color: white;
+    font-weight: bold;
+}
+
+.toast.success {
+    background-color: #1b5e20;
+    color: white;
+    font-weight: bold;
+}
+
+/* side-nav icons */
+.side-nav li > a > i.right,
+.side-nav li > a > [class^="mdi-"],
+.side-nav li > a > [class*="mdi-"],
+.side-nav li > a > i.right.material-icons {
+	margin: 0 0 0 15px;
+	float: right;
+}
+
+/* collection table style */
+.collection.table {
+    width: 100%;
+    display: table;
+}
+
+.collection.table .collection-item {
+    display: table-row;
+}
+
+.collection.table .items {
+    display: table-row-group;
+}
+
+.collection.table .cell {
+    display: table-cell;
+    vertical-align: middle;
+    background-color: inherit;
+    line-height: inherit;
+    padding: 10px 5px;
+    margin: inherit;
+    border: inherit;
+}
+
+.collection.table .header {
+    font-weight: bold;
+}
+
+.collection.table a.cell {
+    color: inherit;
+}
+
+.collection.table .checkbox {
+    width: 0px;
+}
+
+.collection.table > .items > .collection-item:hover {
+	background-color: #f2f2f2;
+}
+
+.collection.table .header .cell:hover {
+    background-color: #f2f2f2;
+}
+/* css for checkox in table */
+.table.collection [type="checkbox"] + label {
+    width: 22px;
+    height: 22px;
+    float: left;
+    padding: 0px;
+}
+
+/* small-screen collection.table */
+@media only screen and (max-width: 993px) {
+    /* Force table to not be like tables anymore */
+    .collection.table {
+        display: block;
+    }
+
+    .collection.table .items {
+        display: table;
+        width: 100%;
+    }
+    
+    .collection.table .collection-item {
+        display: table-row-group;
+    }
+
+    .collection.table .header {
+        display: none;
+    }
+ 
+    .collection.table .cell:not(.checkbox):before {
+        display: table-cell;
+        padding-left: 40px;
+        content: attr(data-label);
+        font-weight: bold;
+    }
+    
+    .collection.table .cell:not(.checkbox) {
+        display: table-row;
+        line-height: 1;
+    }
+
+    .collection.table .cell:not(.checkbox) > * {
+        display: table-cell;
+        padding: 5px 5px;
+    }
+    
+    .collection.table .cell:last-child:not(.checkbox):before,
+    .collection.table .cell:last-child:not(.checkbox) > * {
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+    .collection.table .cell.checkbox {
+        border: none;
+        margin-left: 10px;
+        margin-top: 5px;
+        position: absolute;
+        width: 25px;
+        padding: 0px;
+    }
+}
+
+.dropdown-content li > a {
+    color: black;
+}

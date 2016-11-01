@@ -1,0 +1,19 @@
+<div id="filter-slide-out" class="side-nav">
+    <div>
+        <a class="bg-primary">Filter</a>
+    </div>
+    <form id="filter-form" class="row content">
+        {% for j in range(1, 5) -%}
+        <div class="col s12 input-field">
+            <input type="text" name="col{{ j }}"/>
+            <label for="col{{ j }}">Column {{ j }}</label>
+        </div>
+        {%- endfor %}
+        <div class="col s12 m6">
+            <a href="#filter-form" class="form-submit btn btn-block">Filter</a>
+        </div>
+        <div class="col s12 m6">
+            <a href="?" class="btn btn-block">Clear</a>
+        </div>
+    </form>
+</div>

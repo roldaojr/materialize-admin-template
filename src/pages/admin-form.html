@@ -1,0 +1,72 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+Record form
+{% endblock %}
+
+{% block left_action %}
+<ul id="nav-mobile" class="hide-on-large-only">
+  <li>
+    <a href="admin-list.html" class="more">
+      <i class="material-icons">navigate_before</i>
+    </a>
+  </li>
+</ul>
+{% endblock %}
+
+{% block actions %}
+<ul id="nav-mobile" class="right">
+  <li>
+    <a href="record-list.html" class="delete_link">
+      <span class="hide-on-med-and-down"><i class="left material-icons">delete</i>Delete</span>
+      <span class="hide-on-large-only"><i class="material-icons">delete</i></span>
+    </a>
+  </li>
+  <li>
+    <a href="#model_form" class="form-submit">
+        <span class="hide-on-med-and-down"><i class="left material-icons">save</i>Save</span>
+        <span class="hide-on-large-only"><i class="material-icons">save</i></span>
+    </a>
+  </li>
+</ul>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="input-field col s12 l6">
+        <input type="text" name="column1"/>
+        <label for="column1">Text input</label>
+    </div>
+    <div class="input-field col s12 l6">
+        <select id="column3">
+            <option>Option 1</option>
+            <option>Option 2</option>
+            <option>Option 3</option>
+        </select>
+        <label for="column3">Select</label>
+    </div>
+    <div class="input-field col s12 l6">
+        <input type="date" class="datepicker" name="column5"/>
+        <label for="column5">Date</label>
+    </div>
+    <div class="input-field col s12 l6">
+        <textarea id="textarea1" class="materialize-textarea" length="120"></textarea>
+        <label for="textarea1">Textarea</label>
+    </div>
+    <div class="input-field col s12 l6">
+        <input type="checkbox" id="column2"/>
+        <label for="column2">Checkbox 1</label>
+    </div>
+</div>
+{% include 'partials/delete-modal.html' %}
+{% endblock %}
+
+{% block extrascript %}
+<script type="text/javascript">
+$('.datepicker').pickadate();
+$(".delete_link").click(function() {
+  $("#confirm-delete-modal").openModal()
+  return false
+})
+</script>
+{% endblock %}

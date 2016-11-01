@@ -1,0 +1,15 @@
+{
+  "name": "materialize-admin-template",
+  "version": "0.1.0",
+  "description": "MaterializeCSS basic CRUD template",
+  "author": "Roldão Rego Jr",
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-nunjucks-render": "^2.0.0"
+  },
+  "dependencies": {
+    "bower": "^1.7.9"
+  }
+}
